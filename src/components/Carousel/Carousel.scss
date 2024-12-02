@@ -1,0 +1,43 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 200px;
+    position: relative; */
+  
+    .carousel__btn {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      position: absolute;
+      z-index: 2;
+      height: 100%;
+      top: 0;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .carousel__btn--prev {
+      left: 0; /* Position left button on the left */
+    }
+  
+    .carousel__btn--next {
+      right: 0; /* Position right button on the right */
+    }
+  
+    .carousel__img {
+      max-width: 100%; /* Ensure the image doesn't overflow */
+      max-height: 100%; /* Prevent the image from stretching */
+      object-fit: cover; /* Ensure image maintains aspect ratio */
+      flex-grow: 1; /* Make the image fill remaining space */
+      height: 100%; /* Ensure the image takes up the full height of the container */
+      
+    }
+  }
+  
