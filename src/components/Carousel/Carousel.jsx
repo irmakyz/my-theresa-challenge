@@ -15,18 +15,32 @@ const Carousel = ({ items }) => {
     );
   };
   return (
-    <div className='carousel'>
-      <button className='carousel__btn carousel__btn--prev' onClick={prevSlide}>
+    <div className="carousel">
+      <button className="carousel__btn carousel__btn--prev carousel__btn--desktop" onClick={prevSlide}>
         &lt;
       </button>
       <img
         src={items[activeIndex]}
         alt={`Slide ${activeIndex}`}
-        className='carousel__img'
+        className="carousel__img"
       ></img>
-      <button className='carousel__btn carousel__btn--next' onClick={nextSlide}>
+      <button className="carousel__btn carousel__btn--next carousel__btn--desktop" onClick={nextSlide}>
         &gt;
       </button>
+      <div className="carousel__mobile-btn-container">
+        <button
+          className="carousel__btn carousel__btn--prev carousel__btn--mobile"
+          onClick={prevSlide}
+        >
+          &lt;
+        </button>
+        <button
+          className="carousel__btn carousel__btn--next carousel__btn--mobile"
+          onClick={nextSlide}
+        >
+          &gt;
+        </button>
+      </div>
     </div>
   );
 };
