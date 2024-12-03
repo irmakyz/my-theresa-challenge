@@ -1,0 +1,10 @@
+.carousels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .carousels-container__carousel-with-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
