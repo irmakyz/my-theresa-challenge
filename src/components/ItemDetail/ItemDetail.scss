@@ -1,0 +1,32 @@
+$small-screen: 600px;
+$medium-screen: 840px;
+
+.item-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  .item-detail__description-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .item-detail__button {
+    border-radius: 8px;
+    width: fit-content;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .item-detail__image {
+    object-fit: contain;
+    max-height: 400px;
+    @media (max-width: $medium-screen) {
+      max-height: 400px;
+    }
+  }
+  @media (max-width: $small-screen) {
+    flex-direction: column;
+  }
+}

@@ -41,7 +41,6 @@ const DetailedItemPage = () => {
 
     fetchMovieDetails();
   }, [id]);
-console.log(movie)
   const handleAddToWishlist = () => {
     dispatch(addToWishlist(movie));
   };
