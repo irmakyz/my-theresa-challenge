@@ -1,0 +1,24 @@
+.wishlist {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+
+  .wishlist__wishlist-button {
+    cursor: pointer;
+    background-color: #9dbaf9;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+  }
+ 
+  .wishlist__container{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    .wishlist__title-and-button{
+        display: flex;
+        gap: 5px;
+        align-items: baseline;
+      }
+  }
+}
