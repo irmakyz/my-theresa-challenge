@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import "./CarouselContainer.scss";
+import { categories } from "../../constants";
 const CarouselContainer = () => {
   const [popularItems, setPopularItems] = useState([]);
   const [topRatedItems, setTopRatedItems] = useState([]);
@@ -25,16 +26,17 @@ const CarouselContainer = () => {
           page: 1,
         },
       });
-
-      const imageUrls = response.data.results
-        .map(
-          (movie) =>
-            movie.backdrop_path &&
-            `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`
-        )
+      const items = response.data.results
+        .map((item) => {
+          return {
+            imageUrl:
+              item.backdrop_path &&
+              `https://image.tmdb.org/t/p/w780${item.backdrop_path}`,
+            itemId: movie.id,
+          };
+        })
         .filter(Boolean);
-
-      setState(imageUrls);
+      setState(items);
     } catch (error) {
       console.error(`Failed to fetch ${endpoint} movies:`, error);
     }
@@ -47,18 +49,18 @@ const CarouselContainer = () => {
   }, []);
 
   return (
-    <div className="carousels-container">
-      <div className="carousels-container__carousel-with-header">
-        <Header content="Popular Movies" />
-        <Carousel items={popularItems} />
+    <div className='carousels-container'>
+      <div className='carousels-container__carousel-with-header'>
+        <Header content='Popular Movies' />
+        <Carousel items={popularItems} category={categories.popular} />
       </div>
-      <div className="carousels-container__carousel-with-header">
-        <Header content="Top Rated Movies" />
-        <Carousel items={topRatedItems} />
+      <div className='carousels-container__carousel-with-header'>
+        <Header content='Top Rated Movies' />
+        <Carousel items={topRatedItems} category={categories.topRated} />
       </div>
-      <div className="carousels-container__carousel-with-header">
-        <Header content="Upcoming Movies" />
-        <Carousel items={upcomingItems} />
+      <div className='carousels-container__carousel-with-header'>
+        <Header content='Upcoming Movies' />
+        <Carousel items={upcomingItems} category={categories.upcoming} />
       </div>
     </div>
   );
